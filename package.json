@@ -3,7 +3,7 @@
   "preferGlobal": "true",
   "version": "0.0.1",
   "description": "Convert json files to csv",
-  "main": "index.js",
+  "main": "./bin/jsontocsv.js",
   "scripts": {
     "test": "eslint ."
   },
@@ -25,5 +25,8 @@
   "homepage": "https://github.com/atakangktepe/json-to-csv#readme",
   "devDependencies": {
     "eslint": "^2.13.1"
+  },
+  "dependencies": {
+    "commander": "^2.9.0"
   }
 }
