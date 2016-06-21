@@ -7,6 +7,9 @@
   "scripts": {
     "test": "eslint ."
   },
+  "bin": {
+    "jsontocsv": "./bin/jsontocsv.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atakangktepe/json-to-csv.git"

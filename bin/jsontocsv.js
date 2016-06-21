@@ -6,6 +6,7 @@
 
 var program = require('commander');
 var pjson = require('../package.json');
+var fs = require('fs');
 
 /*
  * @todo:
@@ -13,9 +14,28 @@ var pjson = require('../package.json');
  */
 program
   .version(pjson.version)
-  .option('-c, --convert', 'Convert specified file')
+  .option('-i, --input <input>', 'Incoming json file path')
+  .option('-o, --output <output>', 'Path for outgoing CSV file. Defaults to current directory.')
   .parse(process.argv);
 
-if (program.convert) {
-  console.log('Yay')
+function readFile(callback) {
+  var object;
+
+  if (program.input) {
+    fs.readFile(program.input, 'utf8', function (err, data) {
+      if (err) {
+        return callback(err);
+      }
+      object = JSON.parse(data);
+      callback(null, object);
+    });
+  }
 }
+
+readFile(function (err, data) {
+  if (err) {
+    return false;
+  }
+
+  console.log(data);
+});
