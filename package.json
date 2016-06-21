@@ -1,0 +1,25 @@
+{
+  "name": "json-to-csv",
+  "version": "0.0.1",
+  "description": "Convert json files to csv",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atakangktepe/json-to-csv.git"
+  },
+  "keywords": [
+    "json2csv",
+    "json",
+    "csv",
+    "convert"
+  ],
+  "author": "Atakan GOKTEPE <atakangktepe@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atakangktepe/json-to-csv/issues"
+  },
+  "homepage": "https://github.com/atakangktepe/json-to-csv#readme"
+}
