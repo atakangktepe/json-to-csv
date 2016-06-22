@@ -3,10 +3,10 @@
 /**
  * Module dependencies.
  */
-
 var program = require('commander');
 var pjson = require('../package.json');
 var fs = require('fs');
+var jsonToCsv = require('../lib/jsontocsv.js');
 
 /*
  * @todo:
@@ -26,6 +26,7 @@ function readFile(callback) {
       if (err) {
         return callback(err);
       }
+
       object = JSON.parse(data);
       callback(null, object);
     });
@@ -37,5 +38,7 @@ readFile(function (err, data) {
     return false;
   }
 
-  console.log(data);
+  jsonToCsv(data, function (err, csv) {
+    console.log(csv);
+  });
 });
