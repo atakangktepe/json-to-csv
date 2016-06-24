@@ -8,7 +8,7 @@
     "test": "eslint ."
   },
   "bin": {
-    "jsontocsv": "./bin/jsontocsv.js"
+    "convert2csv": "./bin/jsontocsv.js"
   },
   "repository": {
     "type": "git",
