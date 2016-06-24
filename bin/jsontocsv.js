@@ -39,6 +39,7 @@ readFile(function (err, data) {
   }
 
   jsonToCsv(data, function (err, csv) {
-    // Callback contain csv file
+    // Callback contain csv as string
+    console.log(csv);
   });
 });
