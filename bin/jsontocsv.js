@@ -40,6 +40,25 @@ readFile(function (err, data) {
 
   jsonToCsv(data, function (err, csv) {
     // Callback contain csv as string
-    console.log(csv);
+    var fileName,
+      fileDirectory,
+      fileUrl;
+
+    // If file output setted fileName is same with output else set default to input name
+    if (program.output) {
+      fileName = String(program.output).split('.')[0] + ".csv";
+    } else {
+      fileName = String(program.input).split('.')[0] + ".csv";
+    }
+    
+    fileUrl = process.cwd() + "/" + fileName;
+
+    fs.writeFile(fileUrl, csv, function(err) {
+      if(err) {
+        return console.log(err);
+      }
+
+      console.log("The file was saved to " + fileUrl + " !");
+    });
   });
 });
