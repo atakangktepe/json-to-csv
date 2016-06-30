@@ -45,12 +45,8 @@ readFile(function (err, data) {
       fileUrl;
 
     // If file output setted fileName is same with output else set default to input name
-    if (program.output) {
-      fileName = String(program.output).split('.')[0] + ".csv";
-    } else {
-      fileName = String(program.input).split('.')[0] + ".csv";
-    }
-    
+    fileName = String((program.output ? program.output : program.input)).split('.')[0] + ".csv";
+
     fileUrl = process.cwd() + "/" + fileName;
 
     fs.writeFile(fileUrl, csv, function(err) {
