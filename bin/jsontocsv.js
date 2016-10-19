@@ -9,8 +9,7 @@ var fs = require('fs');
 var jsonToCsv = require('../lib/jsontocsv.js');
 
 /*
- * @todo:
- *   [] Add pretty console.log with tables
+ * Commander Args
  */
 program
   .version(pjson.version)
@@ -19,26 +18,23 @@ program
   .parse(process.argv);
 
 function readFile(callback) {
-  var object;
-
   if (program.input) {
-    fs.readFile(program.input, 'utf8', function (err, data) {
+    fs.readFile(program.input, 'utf8', function(err, data) {
       if (err) {
         return callback(err);
       }
 
-      object = JSON.parse(data);
-      callback(null, object);
+      callback(null, JSON.parse(data));
     });
   }
 }
 
-readFile(function (err, data) {
+readFile(function(err, data) {
   if (err) {
     return false;
   }
 
-  jsonToCsv(data, function (err, csv) {
+  jsonToCsv(data, function(err, csv) {
     // Callback contain csv as string
     var fileName,
       fileDirectory,
